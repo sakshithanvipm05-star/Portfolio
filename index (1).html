@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sakshi Thanvi — Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0b;
+  --bg-card: #111113;
+  --bg-card2: #18181b;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.15);
+  --text: #f0ede8;
+  --text-muted: #8a8885;
+  --text-dim: #505050;
+  --accent: #c8a96e;
+  --accent2: #7c9dba;
+  --accent-glow: rgba(200,169,110,0.12);
+  --green: #5a9e7a;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --nav-h: 68px;
+}
+[data-theme="light"] {
+  --bg: #f7f5f1;
+  --bg-card: #ffffff;
+  --bg-card2: #eeecea;
+  --border: rgba(0,0,0,0.08);
+  --border-hover: rgba(0,0,0,0.18);
+  --text: #1a1a18;
+  --text-muted: #666663;
+  --text-dim: #aaa9a6;
+  --accent-glow: rgba(200,169,110,0.1);
+}
+
+/* ── GLOBAL ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  backdrop-filter: blur(24px) saturate(1.4);
+  background: rgba(10,10,11,0.8);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+[data-theme="light"] nav { background: rgba(247,245,241,0.88); }
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem; color: var(--text);
+  text-decoration: none; letter-spacing: -0.01em;
+}
+.nav-logo em { font-style: italic; color: var(--accent); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: 0.85rem; font-weight: 500;
+  transition: color 0.2s; letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-right { display: flex; align-items: center; gap: 0.9rem; }
+.theme-btn {
+  background: var(--bg-card2); border: 1px solid var(--border);
+  color: var(--text-muted); border-radius: 50%; width: 36px; height: 36px;
+  cursor: pointer; font-size: 0.9rem; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.theme-btn:hover { border-color: var(--border-hover); color: var(--text); }
+.nav-cta {
+  padding: 0.5rem 1.2rem;
+  background: var(--accent); color: #1a1410;
+  border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+  text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── HAMBURGER (mobile) ── */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+.mobile-menu {
+  display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+  background: var(--bg-card); border-bottom: 1px solid var(--border);
+  z-index: 99; padding: 1.5rem 2rem;
+  flex-direction: column; gap: 1.25rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: var(--text-muted); text-decoration: none; font-size: 1rem; font-weight: 500; }
+
+/* ── SECTIONS ── */
+main { padding-top: var(--nav-h); }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 2rem; }
+section { padding: 6rem 0; }
+.section-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 1rem; display: block;
+}
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--text); margin-bottom: 1rem; line-height: 1.15;
+}
+.section-sub { color: var(--text-muted); font-size: 0.95rem; max-width: 560px; line-height: 1.8; }
+
+/* ── HERO ── */
+#hero {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 0 4rem;
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--accent-glow); border: 1px solid rgba(200,169,110,0.22);
+  border-radius: 50px; padding: 0.35rem 1rem;
+  font-size: 0.78rem; color: var(--accent); font-weight: 600;
+  margin-bottom: 2.2rem; letter-spacing: 0.04em;
+}
+.pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2.2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(0.8)} }
+h1.hero-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3.2rem, 9vw, 7rem);
+  line-height: 1.02; color: var(--text);
+  margin-bottom: 1.5rem; letter-spacing: -0.02em;
+}
+h1.hero-name em { font-style: italic; color: var(--accent); }
+.hero-sub {
+  font-size: clamp(1rem, 2.2vw, 1.18rem);
+  color: var(--text-muted); max-width: 560px;
+  margin-bottom: 2.8rem; font-weight: 300; line-height: 1.85;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+.btn-gold {
+  padding: 0.9rem 2rem;
+  background: var(--accent); color: #1a1410;
+  border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: opacity 0.2s, transform 0.2s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-gold:hover { opacity: 0.88; transform: translateY(-2px); }
+.btn-outline {
+  padding: 0.9rem 2rem;
+  background: transparent; color: var(--text);
+  border: 1px solid var(--border-hover);
+  border-radius: 50px; font-weight: 500; font-size: 0.9rem;
+  text-decoration: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.hero-scroll {
+  margin-top: 5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+  color: var(--text-dim); font-size: 0.78rem; letter-spacing: 0.06em;
+}
+.scroll-line { width: 40px; height: 1px; background: var(--text-dim); }
+
+/* ── DIVIDER ── */
+hr.divider { border: none; border-top: 1px solid var(--border); }
+
+/* ── METRICS ── */
+#metrics { padding: 3.5rem 0; }
+.metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+  position: relative; overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.metric-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.metric-card:hover { border-color: rgba(200,169,110,0.35); transform: translateY(-4px); }
+.metric-card:hover::after { opacity: 1; }
+.metric-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.8rem; color: var(--accent);
+  line-height: 1; margin-bottom: 0.5rem;
+}
+.metric-label { font-size: 0.82rem; color: var(--text-muted); line-height: 1.4; }
+
+/* ── ABOUT ── */
+#about .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: start; }
+.about-text p { color: var(--text-muted); font-size: 0.93rem; margin-bottom: 1rem; line-height: 1.85; }
+.cert-stack { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.cert-item {
+  display: flex; align-items: flex-start; gap: 0.85rem;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 0.85rem 1rem;
+}
+.cert-ico { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+.cert-name { font-size: 0.855rem; color: var(--text); font-weight: 500; }
+.cert-body { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+.about-aside h4 {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+}
+.edu-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+.edu-card .school { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.edu-card .degree { font-size: 0.82rem; color: var(--text-muted); margin-top: 3px; }
+.edu-card .year { font-size: 0.75rem; color: var(--text-dim); margin-top: 6px; display: flex; align-items: center; gap: 0.4rem; }
+
+/* ── EXPERIENCE ── */
+.exp-list { display: flex; flex-direction: column; }
+.exp-item {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 2.5rem; padding: 2.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-left { text-align: right; }
+.exp-company { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+.exp-period { font-size: 0.78rem; color: var(--text-dim); margin-top: 4px; }
+.exp-role-tag {
+  display: inline-block;
+  margin-top: 8px; padding: 0.2rem 0.65rem;
+  background: var(--accent-glow); border: 1px solid rgba(200,169,110,0.2);
+  border-radius: 50px; font-size: 0.7rem; color: var(--accent); font-weight: 600;
+}
+.exp-right h3 { font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 0.85rem; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.exp-bullets li {
+  font-size: 0.875rem; color: var(--text-muted);
+  padding-left: 1.1rem; position: relative; line-height: 1.6;
+}
+.exp-bullets li::before {
+  content: ''; position: absolute; left: 0; top: 0.62rem;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+}
+
+/* ── CASE STUDIES ── */
+.cases-list { display: flex; flex-direction: column; gap: 1.25rem; }
+.case-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+.case-card:hover { border-color: var(--border-hover); }
+.case-head {
+  padding: 1.75rem 2rem;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  cursor: pointer; gap: 1rem; user-select: none;
+}
+.case-tag {
+  display: inline-block; padding: 0.22rem 0.7rem; border-radius: 50px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 0.55rem;
+}
+.t-blue { background: rgba(124,157,186,0.14); color: var(--accent2); }
+.t-gold { background: rgba(200,169,110,0.14); color: var(--accent); }
+.t-green { background: rgba(90,158,122,0.14); color: var(--green); }
+.case-head h3 { font-size: 1.05rem; font-weight: 500; color: var(--text); line-height: 1.4; }
+.case-head .tagline { font-size: 0.83rem; color: var(--text-muted); margin-top: 0.35rem; }
+.toggle-btn {
+  width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+  background: var(--bg-card2); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted); font-size: 0.7rem;
+  transition: transform 0.3s, background 0.2s, border-color 0.2s;
+}
+.case-card.open .toggle-btn { transform: rotate(180deg); background: var(--accent-glow); border-color: rgba(200,169,110,0.3); color: var(--accent); }
+.case-body { max-height: 0; overflow: hidden; transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1); }
+.case-card.open .case-body { max-height: 1200px; }
+.case-inner { padding: 0 2rem 2rem; }
+.case-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.75rem; }
+.case-col-title {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 0.65rem;
+}
+.case-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+.case-col ul li { font-size: 0.84rem; color: var(--text-muted); padding-left: 0.9rem; position: relative; }
+.case-col ul li::before { content: '–'; position: absolute; left: 0; color: var(--text-dim); }
+.impact-chips { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.chip {
+  background: var(--bg-card2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 0.65rem 1.1rem; text-align: center;
+}
+.chip .big { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--accent); line-height: 1; }
+.chip .sm { font-size: 0.72rem; color: var(--text-dim); margin-top: 3px; }
+.read-more-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  color: var(--accent); font-size: 0.82rem; font-weight: 600;
+  text-decoration: none; margin-top: 1.25rem;
+  padding: 0.5rem 0.9rem; border: 1px solid rgba(200,169,110,0.25);
+  border-radius: 50px; background: var(--accent-glow);
+  transition: background 0.2s, border-color 0.2s;
+}
+.read-more-link:hover { background: rgba(200,169,110,0.2); border-color: rgba(200,169,110,0.45); }
+
+/* ── FEATURED PROJECT ── */
+.featured-wrap {
+  background: var(--bg-card);
+  border: 1px solid rgba(200,169,110,0.22);
+  border-radius: 24px; overflow: hidden; position: relative;
+}
+.featured-wrap::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+}
+.feat-inner { padding: 3rem; }
+.feat-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--accent-glow); border: 1px solid rgba(200,169,110,0.25);
+  border-radius: 50px; padding: 0.3rem 0.9rem;
+  font-size: 0.72rem; color: var(--accent); font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem;
+}
+.feat-inner h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem); color: var(--text);
+  margin-bottom: 1rem; line-height: 1.1;
+}
+.feat-inner .sub {
+  font-size: 0.95rem; color: var(--text-muted); max-width: 600px;
+  line-height: 1.85; margin-bottom: 2.5rem;
+}
+.feat-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.fp-block h4 {
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.85rem;
+}
+.fp-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.fp-block ul li {
+  font-size: 0.875rem; color: var(--text-muted);
+  padding-left: 1.2rem; position: relative; line-height: 1.6;
+}
+.fp-block ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 3px; }
+.fp-block p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.75; }
+
+.flow-section { margin-top: 2.75rem; }
+.flow-section h4 {
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--accent); margin-bottom: 1.25rem;
+}
+.flow-steps { display: flex; gap: 0; }
+.flow-step {
+  flex: 1;
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-right: none;
+  padding: 1rem 1.1rem;
+}
+.flow-step:last-child { border-right: 1px solid var(--border); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.flow-step:first-child { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+.step-n { font-size: 0.62rem; color: var(--accent); font-weight: 700; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+.step-label { font-size: 0.8rem; color: var(--text); font-weight: 500; line-height: 1.4; }
+
+/* ── SKILLS ── */
+#skills .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.skill-card:hover { border-color: rgba(200,169,110,0.3); transform: translateY(-3px); }
+.skill-icon { font-size: 1.4rem; margin-bottom: 0.75rem; }
+.skill-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; }
+.skill-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.28rem; }
+.skill-card ul li {
+  font-size: 0.82rem; color: var(--text-muted);
+  padding-left: 0.9rem; position: relative;
+}
+.skill-card ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+/* ── CONTACT ── */
+#contact .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.contact-links { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+.contact-link {
+  display: flex; align-items: center; gap: 0.85rem;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 0.9rem 1.1rem;
+  text-decoration: none; color: var(--text);
+  font-size: 0.875rem; font-weight: 500;
+  transition: border-color 0.2s, color 0.2s;
+}
+.contact-link:hover { border-color: rgba(200,169,110,0.35); color: var(--accent); }
+.contact-link .cico { font-size: 1rem; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 2.5rem; text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim); font-size: 0.8rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-cta { display: none; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  #about .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .exp-item { grid-template-columns: 1fr; gap: 0.75rem; }
+  .exp-left { text-align: left; }
+  .case-3col { grid-template-columns: 1fr; gap: 1rem; }
+  .feat-2col { grid-template-columns: 1fr; gap: 2rem; }
+  .flow-steps { flex-direction: column; gap: 0.5rem; }
+  .flow-step { border-right: 1px solid var(--border); border-radius: var(--radius-sm) !important; }
+  #skills .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  #contact .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+@media (max-width: 480px) {
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  #skills .skills-grid { grid-template-columns: 1fr; }
+  h1.hero-name { font-size: 2.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <a href="#hero" class="nav-logo">Sakshi <em>Thanvi</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#casestudies">Case Studies</a></li>
+    <li><a href="#sideproject">AI Project</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme">☀</button>
+    <a href="mailto:sakshithanvipm05@gmail.com" class="nav-cta">Get in Touch</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#experience" onclick="toggleMenu()">Experience</a>
+  <a href="#casestudies" onclick="toggleMenu()">Case Studies</a>
+  <a href="#sideproject" onclick="toggleMenu()">AI Project</a>
+  <a href="#skills" onclick="toggleMenu()">Skills</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<main>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-pill">
+      <span class="pulse"></span>
+      Available for new opportunities
+    </div>
+    <h1 class="hero-name">
+      Sakshi<br><em>Thanvi</em>
+    </h1>
+    <p class="hero-sub">
+      Certified Product Manager with 6+ years building AI-powered SaaS, e-commerce, and fintech products that users love — and metrics celebrate.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:sakshithanvipm05@gmail.com" class="btn-gold">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact Me
+      </a>
+      <a href="#casestudies" class="btn-outline">
+        View My Work
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <span class="scroll-line"></span>
+      Scroll to explore
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════ IMPACT METRICS ══════════ -->
+<section id="metrics">
+  <div class="container">
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-num">6+</div>
+        <div class="metric-label">Years in product management across SaaS &amp; e-commerce</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">30%</div>
+        <div class="metric-label">Onboarding time reduced for JioMart partners</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">85%</div>
+        <div class="metric-label">Internal client adoption achieved at Bugasura</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">7.1K+</div>
+        <div class="metric-label">Unique users on AI bug tracking tool</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-label">About</span>
+        <h2 class="section-title">Turning complexity into clarity, products into growth engines.</h2>
+        <p>I'm a PSPO-I certified Product Manager with deep experience across B2B SaaS, B2C e-commerce, and fintech. I specialize in taking ambiguous problems and turning them into structured roadmaps, measurable outcomes, and products people genuinely enjoy using.</p>
+        <p>From launching AI-enabled bug tracking tools and autonomous agent workflows at Bugasura, to slashing JioMart's partner onboarding time by 30% at Moolya — my work sits at the intersection of user empathy, data, and strategic vision.</p>
+        <p>I believe great products aren't just shipped — they're felt. Every PRD I write, every sprint I run, and every stakeholder alignment session I lead is in service of that belief.</p>
+        <div class="cert-stack">
+          <div class="cert-item">
+            <span class="cert-ico">🏅</span>
+            <div>
+              <div class="cert-name">PSPO-I — Professional Scrum Product Owner</div>
+              <div class="cert-body">Scrum.org certified</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-ico">🎓</span>
+            <div>
+              <div class="cert-name">Certified Program in Data Product Management</div>
+              <div class="cert-body">International Product Leadership, USA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-aside">
+        <h4>Education</h4>
+        <div class="edu-card">
+          <div class="school">SP Jain School of Global Management</div>
+          <div class="degree">Product Management</div>
+          <div class="year">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Dec 2024
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="school">Rajasthan Technical University</div>
+          <div class="degree">B.Tech / B.E.</div>
+          <div class="year">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Dec 2019
+          </div>
+        </div>
+        <h4 style="margin-top:2rem">Location</h4>
+        <div class="edu-card">
+          <div class="school">Bengaluru, Karnataka</div>
+          <div class="degree">India 🇮🇳</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════ EXPERIENCE ══════════ -->
+<section id="experience">
+  <div class="container">
+    <span class="section-label">Experience</span>
+    <h2 class="section-title">Where I've built things.</h2>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-company">Bugasura</div>
+          <div class="exp-period">May 2025 – Present</div>
+          <div class="exp-role-tag">Product Manager</div>
+        </div>
+        <div class="exp-right">
+          <h3>AI-Powered Bug Tracking &amp; QA Automation</h3>
+          <ul class="exp-bullets">
+            <li>Wrote PRDs and managed full SaaS product lifecycle, driving 85% adoption across 12 of 14 internal clients</li>
+            <li>Led AI-enabled bug tracking tool (OpenAI / fine-tuned LLM): auto-classification, duplicate detection, AI summaries, and predictive prioritization — live with 7,100+ unique users</li>
+            <li>Reduced bug triage time by 80%+ and duplicate reports by 90%+ through AI-driven classification engine</li>
+            <li>Defined PRD and roadmap for autonomous AI agents that auto-assign bugs and execute test cases end-to-end, eliminating manual QA steps</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-company">Worldline Global Services</div>
+          <div class="exp-period">Feb 2024 – Jun 2025</div>
+          <div class="exp-role-tag">Consultant</div>
+        </div>
+        <div class="exp-right">
+          <h3>Product Strategy &amp; B2B/B2C SaaS Advisory</h3>
+          <ul class="exp-bullets">
+            <li>Advised product teams on strategy, Agile adoption, and roadmap execution for B2B/B2C SaaS products</li>
+            <li>Defined KPIs and prioritization frameworks, improving feature ROI measurement by 30%</li>
+            <li>Led stakeholder alignment sessions and helped reduce decision cycle time by 20%</li>
+            <li>Conducted user research and translated insights into prioritized backlog items</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-company">Moolya Software Testing</div>
+          <div class="exp-period">Jul 2019 – Feb 2024</div>
+          <div class="exp-role-tag">Associate PM</div>
+        </div>
+        <div class="exp-right">
+          <h3>E-commerce &amp; Fintech Product Leadership</h3>
+          <ul class="exp-bullets">
+            <li>Conducted 40+ user interviews and partnered with UX/UI to iterate flows and prototypes across multiple client products</li>
+            <li>Reduced JioMart Partner onboarding time by 30% through redesigned onboarding flows and process optimization</li>
+            <li>Improved TataCliq user satisfaction scores by 20% via targeted UX improvements</li>
+            <li>Successfully launched Reliance Scan &amp; Pay App across Azorte &amp; Yousta retail formats</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════ CASE STUDIES ══════════ -->
+<section id="casestudies">
+  <div class="container">
+    <span class="section-label">Case Studies</span>
+    <h2 class="section-title">Problems I've solved.</h2>
+    <p class="section-sub" style="margin-bottom:2.5rem">Each case below follows a structured PM approach: problem definition, strategic actions, and measurable impact.</p>
+
+    <div class="cases-list">
+
+      <div class="case-card" id="case1">
+        <div class="case-head" onclick="toggleCase('case1')">
+          <div>
+            <span class="case-tag t-blue">E-commerce</span>
+            <h3>JioMart Partner Onboarding Optimization</h3>
+            <div class="tagline">Reducing friction for 1M+ partner merchants at India's largest retail platform</div>
+          </div>
+          <div class="toggle-btn">▾</div>
+        </div>
+        <div class="case-body">
+          <div class="case-inner">
+            <div class="case-3col">
+              <div class="case-col">
+                <div class="case-col-title">Problem</div>
+                <ul>
+                  <li>Partner onboarding was manual, error-prone, and took 2–3 weeks</li>
+                  <li>High drop-off rates during KYC and catalog setup</li>
+                  <li>Support teams overwhelmed with onboarding queries</li>
+                </ul>
+              </div>
+              <div class="case-col">
+                <div class="case-col-title">Actions</div>
+                <ul>
+                  <li>Ran 15+ partner interviews to map pain points</li>
+                  <li>Redesigned onboarding flow with guided steps and inline validation</li>
+                  <li>Introduced self-serve catalog upload with error handling</li>
+                  <li>Defined KPIs and tracked completion rates per step</li>
+                </ul>
+              </div>
+              <div class="case-col">
+                <div class="case-col-title">Impact</div>
+                <div class="impact-chips">
+                  <div class="chip"><div class="big">-30%</div><div class="sm">onboarding time</div></div>
+                  <div class="chip"><div class="big">↓</div><div class="sm">support tickets</div></div>
+                  <div class="chip"><div class="big">↑</div><div class="sm">partner satisfaction</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card" id="case2">
+        <div class="case-head" onclick="toggleCase('case2')">
+          <div>
+            <span class="case-tag t-gold">AI / SaaS</span>
+            <h3>AI Bug Tracking — Driving Internal Adoption</h3>
+            <div class="tagline">Taking an AI-powered QA tool from 0 to 85% adoption across 12 enterprise clients</div>
+          </div>
+          <div class="toggle-btn">▾</div>
+        </div>
+        <div class="case-body">
+          <div class="case-inner">
+            <div class="case-3col">
+              <div class="case-col">
+                <div class="case-col-title">Problem</div>
+                <ul>
+                  <li>Manual bug triage was slow and inconsistent across teams</li>
+                  <li>Duplicate bug reports bloated backlogs by 40%+</li>
+                  <li>QA teams lacked prioritization intelligence</li>
+                </ul>
+              </div>
+              <div class="case-col">
+                <div class="case-col-title">Actions</div>
+                <ul>
+                  <li>Defined PRD for AI classification engine (OpenAI + fine-tuned LLM)</li>
+                  <li>Built deduplication logic and auto-assignment rules</li>
+                  <li>Ran internal pilots, iterated based on QA team feedback</li>
+                  <li>Roadmapped autonomous agent for end-to-end test execution</li>
+                </ul>
+              </div>
+              <div class="case-col">
+                <div class="case-col-title">Impact</div>
+                <div class="impact-chips">
+                  <div class="chip"><div class="big">85%</div><div class="sm">adoption rate</div></div>
+                  <div class="chip"><div class="big">-80%</div><div class="sm">triage time</div></div>
+                  <div class="chip"><div class="big">-90%</div><div class="sm">duplicates</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card" id="case3">
+        <div class="case-head" onclick="toggleCase('case3')">
+          <div>
+            <span class="case-tag t-green">UX Optimization</span>
+            <h3>TataCliq — User Satisfaction Improvement</h3>
+            <div class="tagline">Translating 40+ user interviews into a 20% satisfaction uplift on India's luxury e-commerce platform</div>
+          </div>
+          <div class="toggle-btn">▾</div>
+        </div>
+        <div class="case-body">
+          <div class="case-inner">
+            <div class="case-3col">
+              <div class="case-col">
+                <div class="case-col-title">Problem</div>
+                <ul>
+                  <li>Users frustrated with complex navigation and checkout flow</li>
+                  <li>Low NPS despite high brand trust</li>
+                  <li>Discovery and search were poor on mobile</li>
+                </ul>
+              </div>
+              <div class="case-col">
+                <div class="case-col-title">Actions</div>
+                <ul>
+                  <li>Conducted 40+ user interviews, synthesized themes</li>
+                  <li>Partnered with UX team to redesign key flows</li>
+                  <li>Prioritized backlog using RICE framework</li>
+                  <li>A/B tested redesigned checkout funnel</li>
+                </ul>
+              </div>
+              <div class="case-col">
+                <div class="case-col-title">Impact</div>
+                <div class="impact-chips">
+                  <div class="chip"><div class="big">+20%</div><div class="sm">user satisfaction</div></div>
+                  <div class="chip"><div class="big">↑</div><div class="sm">mobile NPS</div></div>
+                  <div class="chip"><div class="big">↓</div><div class="sm">checkout drop-off</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:3rem">
+      <span class="section-label">Published Projects</span>
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--text);margin-bottom:1.5rem;">Documented case studies on Medium</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;">
+        <a href="https://medium.com/@sakshithanvipm05/capstone-2-enhancing-instagram-stories-improving-user-experience-5e2db46f902e" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="skill-card" style="height:100%;cursor:pointer;">
+            <div style="font-size:1.5rem;margin-bottom:0.75rem;">📱</div>
+            <div style="margin-bottom:0.5rem;"><span class="case-tag t-blue">Capstone 2</span></div>
+            <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;line-height:1.4;">Enhancing Instagram Stories — Improving User Experience</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6;margin-bottom:1rem;">A UX product case study exploring pain points in Instagram Stories and proposing data-backed feature improvements.</div>
+            <div style="display:flex;align-items:center;gap:0.4rem;color:var(--accent);font-size:0.78rem;font-weight:600;">Read on Medium <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+          </div>
+        </a>
+        <a href="https://medium.com/@sakshithanvipm05/capstone-1-plantory-308e45ec107a" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="skill-card" style="height:100%;cursor:pointer;">
+            <div style="font-size:1.5rem;margin-bottom:0.75rem;">🌱</div>
+            <div style="margin-bottom:0.5rem;"><span class="case-tag t-green">Capstone 1</span></div>
+            <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;line-height:1.4;">Plantory — Product Management Capstone</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6;margin-bottom:1rem;">End-to-end product case study for Plantory — from market research and user personas to roadmap and go-to-market strategy.</div>
+            <div style="display:flex;align-items:center;gap:0.4rem;color:var(--accent);font-size:0.78rem;font-weight:600;">Read on Medium <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+          </div>
+        </a>
+        <a href="https://medium.com/@sakshithanvipm05/project-2-e-commerce-application-15a29eb6e51f" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="skill-card" style="height:100%;cursor:pointer;">
+            <div style="font-size:1.5rem;margin-bottom:0.75rem;">🛒</div>
+            <div style="margin-bottom:0.5rem;"><span class="case-tag t-gold">Project 2</span></div>
+            <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;line-height:1.4;">E-Commerce Application — Product Case Study</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6;margin-bottom:1rem;">A structured product case study for an e-commerce application — covering problem framing, solution design, and release strategy.</div>
+            <div style="display:flex;align-items:center;gap:0.4rem;color:var(--accent);font-size:0.78rem;font-weight:600;">Read on Medium <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════ FEATURED: AI PRD GENERATOR ══════════ -->
+<section id="sideproject">
+  <div class="container">
+    <span class="section-label">Featured Side Project</span>
+    <div class="featured-wrap">
+      <div class="feat-inner">
+        <div class="feat-badge">⚡ Flagship Project</div>
+        <h2>AI PRD Generator</h2>
+        <p class="sub">A product manager's superpower — an AI tool that transforms rough product ideas into structured, stakeholder-ready Product Requirement Documents in minutes, not days.</p>
+        <div class="feat-2col">
+          <div class="fp-block">
+            <h4>Problem it solves</h4>
+            <p>Writing PRDs is one of the most time-consuming tasks in a PM's workflow. It often takes 2–5 days of drafting, reviewing, and aligning stakeholders. Junior PMs especially struggle with structure, completeness, and the right level of detail.</p>
+          </div>
+          <div class="fp-block">
+            <h4>Target users</h4>
+            <ul>
+              <li>Product Managers at early-stage startups</li>
+              <li>Junior PMs learning to write structured docs</li>
+              <li>Founders doing product discovery solo</li>
+              <li>Consultants needing rapid documentation</li>
+            </ul>
+          </div>
+          <div class="fp-block">
+            <h4>Why it's impactful</h4>
+            <p>Reduces PRD creation from days to minutes. Ensures completeness by prompting for all key sections. Creates a consistent format across teams, and lowers the barrier for non-technical stakeholders to contribute to product thinking.</p>
+          </div>
+          <div class="fp-block">
+            <h4>Future roadmap</h4>
+            <ul>
+              <li>JIRA / Linear integration for auto-ticket creation</li>
+              <li>Competitor analysis injection via web search</li>
+              <li>Team collaboration and commenting layer</li>
+              <li>Version history and PRD changelog tracking</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flow-section">
+          <h4>How it works — step by step</h4>
+          <div class="flow-steps">
+            <div class="flow-step"><div class="step-n">STEP 01</div><div class="step-label">Input product idea or problem statement</div></div>
+            <div class="flow-step"><div class="step-n">STEP 02</div><div class="step-label">AI prompts for context: users, goals, constraints</div></div>
+            <div class="flow-step"><div class="step-n">STEP 03</div><div class="step-label">Generates structured PRD with all sections</div></div>
+            <div class="flow-step"><div class="step-n">STEP 04</div><div class="step-label">PM reviews, edits, and exports or shares</div></div>
+            <div class="flow-step"><div class="step-n">STEP 05</div><div class="step-label">Stakeholders align faster, sprint begins</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════ SKILLS ══════════ -->
+<section id="skills">
+  <div class="container">
+    <span class="section-label">Skills</span>
+    <h2 class="section-title" style="margin-bottom:2.5rem">What I bring to the table.</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">🗂</div>
+        <h4>Product Management</h4>
+        <ul>
+          <li>Developing user stories</li><li>Roadmapping</li><li>Backlog prioritization</li>
+          <li>Stakeholder management</li><li>Market analysis</li><li>Release management</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🌐</div>
+        <h4>Domain Expertise</h4>
+        <ul>
+          <li>E-commerce</li><li>Testing &amp; QA</li><li>Card Payments (Fintech)</li>
+          <li>Supply Chain</li><li>AI / LLM Products</li><li>SaaS B2B &amp; B2C</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <h4>Project Management</h4>
+        <ul>
+          <li>Agile / Scrum methodology</li><li>Sprint planning &amp; execution</li><li>JIRA, Confluence, Trello</li>
+          <li>KPI tracking</li><li>Cross-functional coordination</li><li>Data-driven decisions</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔍</div>
+        <h4>UX &amp; Research</h4>
+        <ul>
+          <li>User research &amp; interviews</li><li>Usability testing</li><li>Persona development</li>
+          <li>Journey mapping</li><li>UI collaboration</li><li>Prototype iteration</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💬</div>
+        <h4>Communication</h4>
+        <ul>
+          <li>Stakeholder alignment</li><li>Collaboration &amp; facilitation</li><li>Clear written communication</li>
+          <li>PRD &amp; spec writing</li><li>Executive presentations</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🤖</div>
+        <h4>AI Product Skills</h4>
+        <ul>
+          <li>AI product development</li><li>Agentic AI workflows</li><li>LLM product integration</li>
+          <li>Fine-tuning use cases</li><li>Google Analytics</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:2rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.7rem 1.25rem;display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:1rem;">🗣</span>
+        <div>
+          <div style="font-size:0.8rem;font-weight:600;color:var(--text);">Languages</div>
+          <div style="font-size:0.78rem;color:var(--text-muted);">English · Hindi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Let's build something great together.</h2>
+        <p style="color:var(--text-muted);font-size:0.93rem;line-height:1.85;margin-top:1rem;max-width:440px;">I'm open to senior PM roles, consulting opportunities, and interesting product conversations. If you're working on a hard problem, I'd love to hear about it.</p>
+      </div>
+      <div>
+        <div class="contact-links">
+          <a href="mailto:sakshithanvipm05@gmail.com" class="contact-link"><span class="cico">✉</span>sakshithanvipm05@gmail.com</a>
+          <a href="tel:+916350081535" class="contact-link"><span class="cico">📞</span>+91 6350081535</a>
+          <a href="https://medium.com/@sakshithanvipm05" target="_blank" rel="noopener" class="contact-link"><span class="cico">✍</span>Medium — @sakshithanvipm05</a>
+          <a href="#casestudies" class="contact-link"><span class="cico">📋</span>View Case Studies</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    Designed &amp; built with care · Sakshi Thanvi © 2026
+  </div>
+</footer>
+
+<script>
+// ── Theme ──
+function toggleTheme() {
+  const html = document.documentElement;
+  const curr = html.getAttribute('data-theme');
+  html.setAttribute('data-theme', curr === 'dark' ? 'light' : 'dark');
+  document.querySelector('.theme-btn').textContent = curr === 'dark' ? '🌙' : '☀';
+}
+
+// ── Mobile menu ──
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+// ── Case study accordion ──
+function toggleCase(id) {
+  const card = document.getElementById(id);
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.case-card').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+</script>
+</body>
+</html>
