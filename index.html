@@ -1,62 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sakshi Thanvi | Product Manager</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<li>New chat reset & error handling</li>
+<li>Responsive UI</li>
+</ul>
 
-<style>
-:root {
-  --bg: #fdf6f9;
-  --bg-soft: #f4f7fb;
-  --card: #ffffff;
-  --text: #2d2a32;
-  --muted: #6b6b7a;
-  --accent: #c084fc;
-  --accent2: #7dd3fc;
-  --border: rgba(0,0,0,0.06);
+<p><b>User Flow:</b> User query → Frontend → Backend → AI → Structured response display fileciteturn3file0</p>
+
+<p><b>System Design:</b></p>
+<ul>
+<li><b>Current:</b> UI → Backend → LLM</li>
+<li><b>Future:</b> Add RAG for grounded, context-aware responses</li>
+</ul>
+
+<p><b>What I Built:</b> End-to-end MVP with Chat UI (HTML/CSS/JS), FastAPI backend, and OpenAI integration. fileciteturn3file1</p>
+
+<p><b>Challenges:</b> Handling inconsistent AI responses, backend debugging, lack of knowledge grounding.</p>
+
+<p><b>Impact:</b> Faster information access, reduced dependency on documentation, improved productivity. fileciteturn3file1</p>
+
+<p><b>Limitations:</b> No chat memory, no RAG, limited knowledge base. fileciteturn3file0</p>
+
+<p><b>Next Steps:</b> Implement RAG, add memory, improve UX, deploy and scale.</p>
+
+</div>
+
+<!-- CONTACT -->
+<div class="card">
+<h2 class="section-title">Let’s Connect</h2>
+<a class="btn" href="mailto:sakshithanvipm05@gmail.com">📩 Contact Me</a>
+</div>
+
+</div>
+</div>
+
+<script>
+function unlock(){
+ const val = document.getElementById("pwd").value;
+ if(val === "sakshi"){
+   document.getElementById("lock").style.display = "none";
+   document.getElementById("main").classList.remove("hidden");
+ }
 }
+</script>
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(circle at 10% 20%, #fbcfe8, transparent 40%),
-    radial-gradient(circle at 90% 0%, #bae6fd, transparent 40%),
-    var(--bg);
-}
-
-.container { max-width: 1000px; margin: auto; padding: 60px 20px; }
-
-h1 {
-  font-size: 52px;
-  background: linear-gradient(135deg,#c084fc,#7dd3fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 28px;
-  margin-bottom: 24px;
-}
-
-.section-title {
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-
-.metric-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 14px;
-}
-
-.metric { background: var(--bg-soft); padding: 20px; border-radius: 12px; text-align: center; }
-.metric strong { display:block; font-size:22px; color:var(--accent); }
+</body>
 </html>
