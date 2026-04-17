@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sakshi Thanvi — Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#080810;--bg1:#0e0e1a;--bg2:#13131f;--bg3:#1a1a28;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --text:#f0ede8;--muted:#8a8896;--dim:#44445a;
+  --gold:#d4a853;--gold2:#e8c87a;--blue:#6b9fd4;--teal:#4ecdc4;--rose:#e07b8a;
+  --glow:rgba(212,168,83,0.1);--r:14px;--r-sm:8px;--nav:64px;
+}
+[data-theme="light"]{
+  --bg:#f5f3ee;--bg1:#ffffff;--bg2:#eeece8;--bg3:#e5e3de;
+  --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.14);
+  --text:#1a1820;--muted:#605e6e;--dim:#aaa8b8;--glow:rgba(212,168,83,0.07);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(32px) saturate(1.5);background:rgba(8,8,16,0.8);border-bottom:1px solid var(--border);transition:background .3s}
+[data-theme="light"] nav{background:rgba(245,243,238,0.88)}
+.nav-logo{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--text);text-decoration:none;font-weight:500;letter-spacing:-.02em}
+.nav-logo span{color:var(--gold);font-style:italic}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.03em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.theme-btn{background:var(--bg2);border:1px solid var(--border);color:var(--muted);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:.85rem;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.theme-btn:hover{border-color:var(--border2);color:var(--text)}
+.nav-cta{padding:.45rem 1.1rem;background:var(--gold);color:#1a1408;border-radius:50px;font-size:.78rem;font-weight:600;text-decoration:none;transition:opacity .2s,transform .15s;white-space:nowrap}
+.nav-cta:hover{opacity:.85;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:20px;height:1.5px;background:var(--text);border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg1);border-bottom:1px solid var(--border);z-index:999;padding:1.5rem 2rem;flex-direction:column;gap:1.1rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:500}
+
+/* LAYOUT */
+main{padding-top:var(--nav);position:relative;z-index:1}
+.wrap{max-width:1060px;margin:0 auto;padding:0 2rem}
+section{padding:6rem 0}
+.label{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;display:block}
+.h2{font-family:'Fraunces',serif;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--text);line-height:1.1;font-weight:500}
+.sub{color:var(--muted);font-size:.92rem;line-height:1.85}
+hr.div{border:none;border-top:1px solid var(--border)}
+
+/* HERO */
+#hero{min-height:calc(100vh - var(--nav));display:flex;flex-direction:column;justify-content:center;padding:5rem 0 3rem;position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
+.orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,83,.18),transparent 70%);top:-100px;right:-150px}
+.orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(107,159,212,.12),transparent 70%);bottom:0;left:-100px}
+.hero-in{position:relative;z-index:1}
+.pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,168,83,.08);border:1px solid rgba(212,168,83,.2);border-radius:50px;padding:.3rem .9rem;font-size:.72rem;color:var(--gold);font-weight:600;margin-bottom:2.5rem;letter-spacing:.05em}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1.name{font-family:'Fraunces',serif;font-size:clamp(3.5rem,10vw,7.5rem);line-height:.95;color:var(--text);margin-bottom:1.6rem;letter-spacing:-.03em;font-weight:500}
+h1.name em{font-style:italic;color:var(--gold)}
+.hero-desc{font-size:clamp(.95rem,2vw,1.1rem);color:var(--muted);max-width:520px;margin-bottom:2.8rem;font-weight:300;line-height:1.9}
+.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center}
+.btn-pri{padding:.85rem 1.9rem;background:var(--gold);color:#1a1408;border-radius:50px;font-weight:600;font-size:.85rem;text-decoration:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity .2s,transform .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-pri:hover{opacity:.85;transform:translateY(-2px)}
+.btn-sec{padding:.85rem 1.9rem;background:transparent;color:var(--text);border:1px solid var(--border2);border-radius:50px;font-weight:500;font-size:.85rem;text-decoration:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-sec:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.scroll-hint{margin-top:5rem;display:flex;align-items:center;gap:.65rem;color:var(--dim);font-size:.72rem;letter-spacing:.08em}
+.scroll-line{width:36px;height:1px;background:var(--dim)}
+
+/* METRICS */
+#metrics{padding:3rem 0}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.m-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r);padding:1.6rem 1.4rem;position:relative;overflow:hidden;transition:border-color .25s,transform .25s;cursor:default}
+.m-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,168,83,.04),transparent);opacity:0;transition:opacity .3s}
+.m-card:hover{border-color:rgba(212,168,83,.3);transform:translateY(-4px)}
+.m-card:hover::before{opacity:1}
+.m-num{font-family:'Fraunces',serif;font-size:2.8rem;color:var(--gold);line-height:1;margin-bottom:.4rem;font-weight:500}
+.m-lbl{font-size:.78rem;color:var(--muted);line-height:1.45}
+
+/* ABOUT */
+#about .grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:start}
+.about-p{color:var(--muted);font-size:.9rem;margin-bottom:1rem;line-height:1.9}
+.cert-list{margin-top:2rem;display:flex;flex-direction:column;gap:.65rem}
+.cert{display:flex;align-items:flex-start;gap:.8rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.8rem 1rem}
+.cert-ico{font-size:.95rem;flex-shrink:0;margin-top:2px}
+.cert-title{font-size:.83rem;color:var(--text);font-weight:500}
+.cert-sub{font-size:.75rem;color:var(--muted);margin-top:2px}
+.aside-h{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+.edu-box{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.1rem 1.2rem;margin-bottom:.8rem}
+.edu-school{font-size:.88rem;font-weight:600;color:var(--text)}
+.edu-deg{font-size:.79rem;color:var(--muted);margin-top:3px}
+.edu-yr{font-size:.72rem;color:var(--dim);margin-top:5px;display:flex;align-items:center;gap:.35rem}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column}
+.exp{display:grid;grid-template-columns:190px 1fr;gap:2.5rem;padding:2rem 0;border-bottom:1px solid var(--border)}
+.exp:last-child{border-bottom:none}
+.exp-l{text-align:right}
+.exp-co{font-weight:600;font-size:.9rem;color:var(--text)}
+.exp-period{font-size:.74rem;color:var(--dim);margin-top:3px}
+.exp-tag{display:inline-block;margin-top:7px;padding:.18rem .6rem;background:var(--glow);border:1px solid rgba(212,168,83,.18);border-radius:50px;font-size:.67rem;color:var(--gold);font-weight:600}
+.exp-r h3{font-size:.95rem;font-weight:500;color:var(--text);margin-bottom:.75rem}
+.bul{list-style:none;display:flex;flex-direction:column;gap:.3rem}
+.bul li{font-size:.845rem;color:var(--muted);padding-left:1.1rem;position:relative;line-height:1.6}
+.bul li::before{content:'';position:absolute;left:0;top:.6rem;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+
+/* CASE STUDIES */
+.cases{display:flex;flex-direction:column;gap:1rem}
+.case{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .25s}
+.case:hover{border-color:var(--border2)}
+.case-top{padding:1.6rem 1.8rem;display:flex;align-items:flex-start;justify-content:space-between;cursor:pointer;gap:1rem;user-select:none}
+.tag{display:inline-block;padding:.2rem .65rem;border-radius:50px;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.45rem}
+.t-b{background:rgba(107,159,212,.12);color:var(--blue)}
+.t-g{background:rgba(212,168,83,.12);color:var(--gold)}
+.t-t{background:rgba(78,205,196,.12);color:var(--teal)}
+.t-r{background:rgba(224,123,138,.12);color:var(--rose)}
+.case-top h3{font-size:1rem;font-weight:500;color:var(--text);line-height:1.4}
+.case-top .tl{font-size:.8rem;color:var(--muted);margin-top:.3rem}
+.tog{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.65rem;transition:transform .3s,background .2s,border-color .2s}
+.case.open .tog{transform:rotate(180deg);background:var(--glow);border-color:rgba(212,168,83,.3);color:var(--gold)}
+.case-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.case.open .case-body{max-height:1400px}
+.case-in{padding:0 1.8rem 1.8rem}
+.c3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-bottom:1.5rem}
+.col-h{font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.55rem}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:.28rem}
+.col ul li{font-size:.81rem;color:var(--muted);padding-left:.85rem;position:relative}
+.col ul li::before{content:'–';position:absolute;left:0;color:var(--dim)}
+.chips{display:flex;flex-wrap:wrap;gap:.65rem}
+.chip{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.55rem 1rem;text-align:center}
+.chip .big{font-family:'Fraunces',serif;font-size:1.45rem;color:var(--gold);line-height:1;font-weight:500}
+.chip .sm{font-size:.68rem;color:var(--dim);margin-top:2px}
+
+/* ══════════════════════════════════════
+   PROJECTS — TABBED SECTION
+══════════════════════════════════════ */
+#projects{background:linear-gradient(180deg,var(--bg) 0%,var(--bg1) 100%)}
+
+/* Tab bar */
+.tab-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:50px;padding:.35rem;width:fit-content}
+.tab-btn{padding:.45rem 1.15rem;border-radius:50px;border:none;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;cursor:pointer;transition:all .25s;white-space:nowrap;letter-spacing:.02em}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{background:var(--gold);color:#1a1408;font-weight:600}
+
+/* Tab panels */
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* Project cards grid */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+
+/* ── Standard project card ── */
+.proj-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s;position:relative}
+.proj-card:hover{border-color:rgba(212,168,83,.3);transform:translateY(-4px)}
+.proj-card-top{padding:1.5rem 1.5rem 0}
+.proj-card-body{padding:.75rem 1.5rem 1.5rem;flex:1;display:flex;flex-direction:column}
+.proj-ico{font-size:1.5rem;margin-bottom:.75rem}
+.proj-card h3{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:.45rem;line-height:1.4}
+.proj-card p{font-size:.8rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;flex:1}
+.proj-meta{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.proj-pill{font-size:.63rem;font-weight:600;padding:.15rem .55rem;border-radius:50px;letter-spacing:.04em}
+.proj-link{display:inline-flex;align-items:center;gap:.35rem;color:var(--gold);font-size:.75rem;font-weight:600;text-decoration:none;margin-top:auto}
+.proj-link:hover{opacity:.75}
+
+/* ── Flagship card (spans full width) ── */
+.proj-card.flagship{grid-column:1/-1;border-color:rgba(212,168,83,.2);background:var(--bg1);position:relative;overflow:hidden}
+.proj-card.flagship::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--teal),var(--blue))}
+.flagship-inner{padding:2.25rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.flagship-left{}
+.flagship-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(212,168,83,.08);border:1px solid rgba(212,168,83,.2);border-radius:50px;padding:.25rem .8rem;font-size:.65rem;color:var(--gold);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:1rem}
+.flagship-title{font-family:'Fraunces',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--text);margin-bottom:.75rem;font-weight:500;line-height:1.1}
+.flagship-title em{font-style:italic;color:var(--gold)}
+.flagship-desc{font-size:.85rem;color:var(--muted);line-height:1.85;margin-bottom:1.5rem}
+.flagship-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.5rem}
+
+/* Arch flow inside flagship */
+.arch-h{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--gold);margin-bottom:.7rem;margin-top:1.25rem}
+.arch-flow{display:flex;align-items:center;flex-wrap:wrap;gap:.3rem;margin-bottom:.5rem}
+.arch-node{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:.45rem .85rem;font-size:.72rem;color:var(--text);font-weight:500;white-space:nowrap}
+.arch-node.hi{background:rgba(212,168,83,.1);border-color:rgba(212,168,83,.3);color:var(--gold)}
+.arch-node.fut{background:rgba(78,205,196,.07);border-color:rgba(78,205,196,.25);color:var(--teal)}
+.arch-arr{color:var(--dim);font-size:.75rem;padding:0 .1rem}
+
+/* Right side blocks */
+.flagship-right{display:flex;flex-direction:column;gap:1rem}
+.f-block{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem 1.1rem}
+.f-block h4{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;margin-bottom:.55rem}
+.f-block.built h4{color:var(--gold)}
+.f-block.lim h4{color:var(--rose)}
+.f-block.road h4{color:var(--teal)}
+.f-block ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.f-block ul li{font-size:.78rem;color:var(--muted);padding-left:1rem;position:relative;line-height:1.55}
+.f-block.built ul li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-size:.65rem;top:2px}
+.f-block.lim ul li::before{content:'·';position:absolute;left:0;color:var(--rose);font-weight:700}
+.f-block.road ul li::before{content:'→';position:absolute;left:0;color:var(--teal);font-size:.65rem;top:3px}
+
+/* SKILLS */
+#skills .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.sk{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem;transition:border-color .25s,transform .25s}
+.sk:hover{border-color:rgba(212,168,83,.25);transform:translateY(-3px)}
+.sk-ico{font-size:1.25rem;margin-bottom:.65rem}
+.sk h4{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:.65rem}
+.sk ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.sk ul li{font-size:.78rem;color:var(--muted);padding-left:.85rem;position:relative}
+.sk ul li::before{content:'·';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* CONTACT */
+#contact .c-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.c-links{display:flex;flex-direction:column;gap:.65rem;margin-top:1.8rem}
+.c-link{display:flex;align-items:center;gap:.8rem;background:var(--bg1);border:1px solid var(--border);border-radius:var(--r-sm);padding:.85rem 1rem;text-decoration:none;color:var(--text);font-size:.845rem;font-weight:500;transition:border-color .2s,color .2s}
+.c-link:hover{border-color:rgba(212,168,83,.3);color:var(--gold)}
+.c-ico{font-size:.95rem}
+
+footer{padding:2.2rem;text-align:center;border-top:1px solid var(--border);color:var(--dim);font-size:.77rem}
+
+/* FADE ANIMATION */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none}.hamburger{display:flex}.nav-cta{display:none}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  #about .grid2{grid-template-columns:1fr;gap:3rem}
+  .exp{grid-template-columns:1fr;gap:.65rem}.exp-l{text-align:left}
+  .c3{grid-template-columns:1fr;gap:1rem}
+  .flagship-inner{grid-template-columns:1fr;gap:1.5rem}
+  .proj-grid{grid-template-columns:1fr}
+  .tab-bar{gap:.35rem}
+  .tab-btn{padding:.4rem .9rem;font-size:.73rem}
+  #skills .skill-grid{grid-template-columns:repeat(2,1fr)}
+  #contact .c-grid{grid-template-columns:1fr;gap:3rem}
+}
+@media(max-width:480px){
+  .metrics{grid-template-columns:1fr 1fr}
+  #skills .skill-grid{grid-template-columns:1fr}
+  h1.name{font-size:2.9rem}
+  .tab-bar{width:100%}
+  .tab-btn{flex:1;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Sakshi <span>Thanvi</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#casestudies">Case Studies</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme">☀</button>
+    <a href="mailto:sakshithanvipm05@gmail.com" class="nav-cta">Get in Touch</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#experience" onclick="toggleMenu()">Experience</a>
+  <a href="#casestudies" onclick="toggleMenu()">Case Studies</a>
+  <a href="#projects" onclick="toggleMenu()">Projects</a>
+  <a href="#skills" onclick="toggleMenu()">Skills</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap hero-in">
+    <div class="orb orb1"></div><div class="orb orb2"></div>
+    <div class="pill"><span class="dot"></span> Available for new opportunities</div>
+    <h1 class="name">Sakshi<br><em>Thanvi</em></h1>
+    <p class="hero-desc">Certified Product Manager with 6+ years building AI-powered SaaS, e-commerce, and fintech products that users love — and metrics celebrate.</p>
+    <div class="hero-btns">
+      <a href="mailto:sakshithanvipm05@gmail.com" class="btn-pri">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact Me
+      </a>
+      <a href="#projects" class="btn-sec">View Projects <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+    </div>
+    <div class="scroll-hint"><span class="scroll-line"></span> Scroll to explore</div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- METRICS -->
+<section id="metrics">
+  <div class="wrap">
+    <div class="metrics fade-up">
+      <div class="m-card"><div class="m-num">6+</div><div class="m-lbl">Years in product management across SaaS &amp; e-commerce</div></div>
+      <div class="m-card"><div class="m-num">30%</div><div class="m-lbl">Onboarding time reduced for JioMart partners</div></div>
+      <div class="m-card"><div class="m-num">85%</div><div class="m-lbl">Internal client adoption achieved at Bugasura</div></div>
+      <div class="m-card"><div class="m-num">7.1K+</div><div class="m-lbl">Unique users on AI bug tracking tool</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="grid2">
+      <div class="fade-up">
+        <span class="label">About</span>
+        <h2 class="h2" style="margin-bottom:1.2rem">Turning complexity into clarity,<br><em style="font-style:italic;color:var(--gold)">products into growth engines.</em></h2>
+        <p class="about-p">I'm a PSPO-I certified Product Manager with deep experience across B2B SaaS, B2C e-commerce, and fintech. I specialize in taking ambiguous problems and turning them into structured roadmaps, measurable outcomes, and products people genuinely enjoy using.</p>
+        <p class="about-p">From launching AI-enabled bug tracking tools and autonomous agent workflows at Bugasura, to slashing JioMart's partner onboarding time by 30% at Moolya — my work sits at the intersection of user empathy, data, and strategic vision.</p>
+        <p class="about-p">I believe great products aren't just shipped — they're felt.</p>
+        <div class="cert-list">
+          <div class="cert"><span class="cert-ico">🏅</span><div><div class="cert-title">PSPO-I — Professional Scrum Product Owner</div><div class="cert-sub">Scrum.org certified</div></div></div>
+          <div class="cert"><span class="cert-ico">🎓</span><div><div class="cert-title">Certified Program in Data Product Management</div><div class="cert-sub">International Product Leadership, USA</div></div></div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="aside-h">Education</div>
+        <div class="edu-box"><div class="edu-school">SP Jain School of Global Management</div><div class="edu-deg">Product Management</div><div class="edu-yr"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Dec 2024</div></div>
+        <div class="edu-box"><div class="edu-school">Rajasthan Technical University</div><div class="edu-deg">B.Tech / B.E.</div><div class="edu-yr"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Dec 2019</div></div>
+        <div class="aside-h" style="margin-top:1.8rem">Location</div>
+        <div class="edu-box"><div class="edu-school">Bengaluru, Karnataka</div><div class="edu-deg">India 🇮🇳</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <span class="label">Experience</span>
+    <h2 class="h2 fade-up" style="margin-bottom:2.5rem">Where I've built things.</h2>
+    <div class="exp-list">
+      <div class="exp fade-up">
+        <div class="exp-l"><div class="exp-co">Bugasura</div><div class="exp-period">May 2025 – Present</div><div class="exp-tag">Product Manager</div></div>
+        <div class="exp-r"><h3>AI-Powered Bug Tracking &amp; QA Automation</h3><ul class="bul">
+          <li>Wrote PRDs and managed full SaaS product lifecycle, driving 85% adoption across 12 of 14 internal clients</li>
+          <li>Led AI-enabled bug tracking tool (OpenAI / fine-tuned LLM): auto-classification, duplicate detection, AI summaries, and predictive prioritization — live with 7,100+ unique users</li>
+          <li>Reduced bug triage time by 80%+ and duplicate reports by 90%+ through AI-driven classification engine</li>
+          <li>Defined PRD and roadmap for autonomous AI agents that auto-assign bugs and execute test cases end-to-end</li>
+        </ul></div>
+      </div>
+      <div class="exp fade-up">
+        <div class="exp-l"><div class="exp-co">Worldline Global Services</div><div class="exp-period">Feb 2024 – Jun 2025</div><div class="exp-tag">Consultant</div></div>
+        <div class="exp-r"><h3>Product Strategy &amp; B2B/B2C SaaS Advisory</h3><ul class="bul">
+          <li>Advised product teams on strategy, Agile adoption, and roadmap execution for B2B/B2C SaaS products</li>
+          <li>Defined KPIs and prioritization frameworks, improving feature ROI measurement by 30%</li>
+          <li>Led stakeholder alignment sessions and helped reduce decision cycle time by 20%</li>
+          <li>Conducted user research and translated insights into prioritized backlog items</li>
+        </ul></div>
+      </div>
+      <div class="exp fade-up">
+        <div class="exp-l"><div class="exp-co">Moolya Software Testing</div><div class="exp-period">Jul 2019 – Feb 2024</div><div class="exp-tag">Associate PM</div></div>
+        <div class="exp-r"><h3>E-commerce &amp; Fintech Product Leadership</h3><ul class="bul">
+          <li>Conducted 40+ user interviews and partnered with UX/UI to iterate flows and prototypes across multiple client products</li>
+          <li>Reduced JioMart Partner onboarding time by 30% through redesigned onboarding flows</li>
+          <li>Improved TataCliq user satisfaction scores by 20% via targeted UX improvements</li>
+          <li>Successfully launched Reliance Scan &amp; Pay App across Azorte &amp; Yousta retail formats</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- CASE STUDIES -->
+<section id="casestudies">
+  <div class="wrap">
+    <span class="label">Case Studies</span>
+    <h2 class="h2 fade-up">Problems I've solved.</h2>
+    <p class="sub fade-up" style="margin:1rem 0 2rem">Each case follows a structured PM approach: problem definition, strategic actions, and measurable impact.</p>
+    <div class="cases">
+
+      <div class="case fade-up" id="c1">
+        <div class="case-top" onclick="tog('c1')">
+          <div><span class="tag t-b">E-commerce</span><h3>JioMart Partner Onboarding Optimization</h3><div class="tl">Reducing friction for 1M+ partner merchants at India's largest retail platform</div></div>
+          <div class="tog">▾</div>
+        </div>
+        <div class="case-body"><div class="case-in"><div class="c3">
+          <div class="col"><div class="col-h">Problem</div><ul><li>Manual onboarding took 2–3 weeks</li><li>High drop-off during KYC &amp; catalog setup</li><li>Support teams overwhelmed</li></ul></div>
+          <div class="col"><div class="col-h">Actions</div><ul><li>15+ partner interviews</li><li>Redesigned flow with inline validation</li><li>Self-serve catalog upload</li><li>KPIs tracked per step</li></ul></div>
+          <div class="col"><div class="col-h">Impact</div><div class="chips"><div class="chip"><div class="big">-30%</div><div class="sm">onboarding time</div></div><div class="chip"><div class="big">↓</div><div class="sm">support tickets</div></div><div class="chip"><div class="big">↑</div><div class="sm">partner satisfaction</div></div></div></div>
+        </div></div></div>
+      </div>
+
+      <div class="case fade-up" id="c2">
+        <div class="case-top" onclick="tog('c2')">
+          <div><span class="tag t-g">AI / SaaS</span><h3>AI Bug Tracking — Driving Internal Adoption</h3><div class="tl">Taking an AI-powered QA tool from 0 to 85% adoption across 12 enterprise clients</div></div>
+          <div class="tog">▾</div>
+        </div>
+        <div class="case-body"><div class="case-in"><div class="c3">
+          <div class="col"><div class="col-h">Problem</div><ul><li>Manual bug triage was inconsistent</li><li>Duplicate reports bloated backlogs 40%+</li><li>QA teams lacked prioritization</li></ul></div>
+          <div class="col"><div class="col-h">Actions</div><ul><li>PRD for AI classification engine</li><li>Deduplication &amp; auto-assignment rules</li><li>Internal pilots with iteration</li><li>Roadmapped autonomous agents</li></ul></div>
+          <div class="col"><div class="col-h">Impact</div><div class="chips"><div class="chip"><div class="big">85%</div><div class="sm">adoption rate</div></div><div class="chip"><div class="big">-80%</div><div class="sm">triage time</div></div><div class="chip"><div class="big">-90%</div><div class="sm">duplicates</div></div></div></div>
+        </div></div></div>
+      </div>
+
+      <div class="case fade-up" id="c3">
+        <div class="case-top" onclick="tog('c3')">
+          <div><span class="tag t-t">UX Optimization</span><h3>TataCliq — User Satisfaction Improvement</h3><div class="tl">Translating 40+ user interviews into a 20% satisfaction uplift on India's luxury e-commerce platform</div></div>
+          <div class="tog">▾</div>
+        </div>
+        <div class="case-body"><div class="case-in"><div class="c3">
+          <div class="col"><div class="col-h">Problem</div><ul><li>Complex navigation &amp; checkout</li><li>Low NPS despite high brand trust</li><li>Poor mobile search &amp; discovery</li></ul></div>
+          <div class="col"><div class="col-h">Actions</div><ul><li>40+ user interviews synthesized</li><li>UX redesign of key flows</li><li>RICE framework prioritization</li><li>A/B tested checkout funnel</li></ul></div>
+          <div class="col"><div class="col-h">Impact</div><div class="chips"><div class="chip"><div class="big">+20%</div><div class="sm">user satisfaction</div></div><div class="chip"><div class="big">↑</div><div class="sm">mobile NPS</div></div><div class="chip"><div class="big">↓</div><div class="sm">checkout drop-off</div></div></div></div>
+        </div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ══════════════════════════════════════
+     PROJECTS — ALL 5, TABBED BY CATEGORY
+══════════════════════════════════════ -->
+<section id="projects">
+  <div class="wrap">
+    <span class="label">Side Projects</span>
+    <h2 class="h2 fade-up">Everything I've built.</h2>
+    <p class="sub fade-up" style="margin:.9rem 0 2rem">All projects — nothing hidden. Browse by category.</p>
+
+    <!-- Tab bar -->
+    <div class="tab-bar fade-up" role="tablist">
+      <button class="tab-btn active" onclick="switchTab('all',this)" role="tab">All (5)</button>
+      <button class="tab-btn" onclick="switchTab('ai',this)" role="tab">🤖 AI</button>
+      <button class="tab-btn" onclick="switchTab('ux',this)" role="tab">🎨 UX</button>
+      <button class="tab-btn" onclick="switchTab('ecom',this)" role="tab">🛒 E-commerce</button>
+    </div>
+
+    <!-- ALL TAB -->
+    <div class="tab-panel active" id="tab-all">
+      <div class="proj-grid">
+
+        <!-- 1. ASURA ASSIST — flagship, spans full width -->
+        <div class="proj-card flagship fade-up">
+          <div class="flagship-inner">
+            <div class="flagship-left">
+              <div class="flagship-badge">⚡ Flagship · End-to-End Build</div>
+              <h2 class="flagship-title">Asura <em>Assist</em></h2>
+              <p class="flagship-desc">An embedded AI chatbot that replaces slow, fragmented documentation search with instant, structured answers — reducing product friction at the point of need.</p>
+              <div class="flagship-tags">
+                <span class="tag t-g">AI / LLM</span>
+                <span class="tag t-b">FastAPI</span>
+                <span class="tag t-t">OpenAI</span>
+                <span class="tag t-r">UX Design</span>
+              </div>
+              <div class="arch-h">Architecture — Current</div>
+              <div class="arch-flow">
+                <div class="arch-node hi">User</div><div class="arch-arr">→</div>
+                <div class="arch-node">Chat UI</div><div class="arch-arr">→</div>
+                <div class="arch-node">FastAPI</div><div class="arch-arr">→</div>
+                <div class="arch-node hi">OpenAI</div><div class="arch-arr">→</div>
+                <div class="arch-node">Response</div>
+              </div>
+              <div class="arch-h" style="color:var(--teal)">Future — RAG Pipeline</div>
+              <div class="arch-flow">
+                <div class="arch-node hi">User</div><div class="arch-arr">→</div>
+                <div class="arch-node fut">Retrieval</div><div class="arch-arr">→</div>
+                <div class="arch-node fut">Context</div><div class="arch-arr">→</div>
+                <div class="arch-node hi">LLM</div><div class="arch-arr">→</div>
+                <div class="arch-node fut">Grounded Answer</div>
+              </div>
+            </div>
+            <div class="flagship-right">
+              <div class="f-block built">
+                <h4>What I Built</h4>
+                <ul>
+                  <li>Chat UI — HTML / CSS / JS</li>
+                  <li>FastAPI backend with OpenAI integration</li>
+                  <li>Slide-in non-intrusive UI pattern</li>
+                  <li>Bullet-formatted scannable responses</li>
+                  <li>Error handling &amp; new chat reset</li>
+                </ul>
+              </div>
+              <div class="f-block lim">
+                <h4>Current Limitations</h4>
+                <ul>
+                  <li>No RAG / knowledge base yet</li>
+                  <li>No persistent chat history</li>
+                  <li>No context awareness across turns</li>
+                  <li>Basic prompt engineering only</li>
+                </ul>
+              </div>
+              <div class="f-block road">
+                <h4>Roadmap</h4>
+                <ul>
+                  <li>Implement RAG for grounded responses</li>
+                  <li>Add chat memory &amp; context awareness</li>
+                  <li>Streaming responses &amp; suggestions</li>
+                  <li>Analytics &amp; JIRA integration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. AI PRD Generator -->
+        <div class="proj-card fade-up">
+          <div class="proj-card-top">
+            <div class="proj-ico">📋</div>
+            <div class="proj-meta"><span class="tag t-g">AI</span><span class="tag t-b">Productivity</span></div>
+          </div>
+          <div class="proj-card-body">
+            <h3>AI PRD Generator</h3>
+            <p>A PM's superpower — transforms rough product ideas into structured, stakeholder-ready PRDs in minutes. Eliminates 2–5 days of manual drafting by prompting for all key sections and generating consistent, complete documents.</p>
+            <div style="font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:.75rem">
+              <strong style="color:var(--text);font-size:.72rem">Target users:</strong> PMs at startups, junior PMs, founders, consultants<br>
+              <strong style="color:var(--text);font-size:.72rem">Roadmap:</strong> JIRA integration, competitor analysis, version history
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Instagram Stories UX -->
+        <div class="proj-card fade-up">
+          <div class="proj-card-top">
+            <div class="proj-ico">📱</div>
+            <div class="proj-meta"><span class="tag t-r">UX</span><span class="tag t-b">Capstone 2</span></div>
+          </div>
+          <div class="proj-card-body">
+            <h3>Enhancing Instagram Stories — UX Improvement</h3>
+            <p>A UX product case study exploring pain points in Instagram Stories and proposing data-backed feature improvements. Covers user research, journey mapping, pain point prioritisation, and redesign recommendations.</p>
+            <a href="https://medium.com/@sakshithanvipm05/capstone-2-enhancing-instagram-stories-improving-user-experience-5e2db46f902e" target="_blank" rel="noopener" class="proj-link">
+              Read on Medium <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Plantory -->
+        <div class="proj-card fade-up">
+          <div class="proj-card-top">
+            <div class="proj-ico">🌱</div>
+            <div class="proj-meta"><span class="tag t-t">Product</span><span class="tag t-b">Capstone 1</span></div>
+          </div>
+          <div class="proj-card-body">
+            <h3>Plantory — Product Management Capstone</h3>
+            <p>End-to-end product case study for Plantory — from market research and user personas to full roadmap and go-to-market strategy. Demonstrates the complete PM lifecycle from problem discovery to launch planning.</p>
+            <a href="https://medium.com/@sakshithanvipm05/capstone-1-plantory-308e45ec107a" target="_blank" rel="noopener" class="proj-link">
+              Read on Medium <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. E-Commerce Application -->
+        <div class="proj-card fade-up">
+          <div class="proj-card-top">
+            <div class="proj-ico">🛒</div>
+            <div class="proj-meta"><span class="tag t-g">E-commerce</span><span class="tag t-b">Project 2</span></div>
+          </div>
+          <div class="proj-card-body">
+            <h3>E-Commerce Application — Product Case Study</h3>
+            <p>A structured product case study for an e-commerce application — covering problem framing, solution design, and release strategy. Includes prioritisation framework, feature scoping, and go-to-market approach.</p>
+            <a href="https://medium.com/@sakshithanvipm05/project-2-e-commerce-application-15a29eb6e51f" target="_blank" rel="noopener" class="proj-link">
+              Read on Medium <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /tab-all -->
+
+    <!-- AI TAB -->
+    <div class="tab-panel" id="tab-ai">
+      <div class="proj-grid">
+        <div class="proj-card flagship fade-up">
+          <div class="flagship-inner">
+            <div class="flagship-left">
+              <div class="flagship-badge">⚡ Flagship · End-to-End Build</div>
+              <h2 class="flagship-title">Asura <em>Assist</em></h2>
+              <p class="flagship-desc">An embedded AI chatbot replacing slow documentation search with instant, structured answers — built with FastAPI + OpenAI, with RAG on the roadmap.</p>
+              <div class="flagship-tags"><span class="tag t-g">AI / LLM</span><span class="tag t-b">FastAPI</span><span class="tag t-t">OpenAI</span><span class="tag t-r">UX Design</span></div>
+              <div class="arch-h">Architecture — Current</div>
+              <div class="arch-flow"><div class="arch-node hi">User</div><div class="arch-arr">→</div><div class="arch-node">Chat UI</div><div class="arch-arr">→</div><div class="arch-node">FastAPI</div><div class="arch-arr">→</div><div class="arch-node hi">OpenAI</div><div class="arch-arr">→</div><div class="arch-node">Response</div></div>
+              <div class="arch-h" style="color:var(--teal)">Future — RAG Pipeline</div>
+              <div class="arch-flow"><div class="arch-node hi">User</div><div class="arch-arr">→</div><div class="arch-node fut">Retrieval</div><div class="arch-arr">→</div><div class="arch-node fut">Context</div><div class="arch-arr">→</div><div class="arch-node hi">LLM</div><div class="arch-arr">→</div><div class="arch-node fut">Grounded Answer</div></div>
+            </div>
+            <div class="flagship-right">
+              <div class="f-block built"><h4>What I Built</h4><ul><li>Chat UI — HTML / CSS / JS</li><li>FastAPI backend with OpenAI integration</li><li>Slide-in non-intrusive UI pattern</li><li>Bullet-formatted scannable responses</li><li>Error handling &amp; new chat reset</li></ul></div>
+              <div class="f-block road"><h4>Roadmap</h4><ul><li>Implement RAG for grounded responses</li><li>Add chat memory &amp; context awareness</li><li>Streaming responses &amp; suggestions</li><li>Analytics &amp; JIRA integration</li></ul></div>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card fade-up">
+          <div class="proj-card-top"><div class="proj-ico">📋</div><div class="proj-meta"><span class="tag t-g">AI</span><span class="tag t-b">Productivity</span></div></div>
+          <div class="proj-card-body">
+            <h3>AI PRD Generator</h3>
+            <p>Transforms rough product ideas into structured, stakeholder-ready PRDs in minutes. Prompts for all key sections — problem, users, scope, success metrics, and roadmap.</p>
+            <div style="font-size:.75rem;color:var(--muted);line-height:1.6"><strong style="color:var(--text);font-size:.72rem">Roadmap:</strong> JIRA integration, competitor analysis injection, team collaboration layer</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /tab-ai -->
+
+    <!-- UX TAB -->
+    <div class="tab-panel" id="tab-ux">
+      <div class="proj-grid">
+        <div class="proj-card fade-up">
+          <div class="proj-card-top"><div class="proj-ico">📱</div><div class="proj-meta"><span class="tag t-r">UX</span><span class="tag t-b">Capstone 2</span></div></div>
+          <div class="proj-card-body">
+            <h3>Enhancing Instagram Stories — UX Improvement</h3>
+            <p>A UX product case study exploring pain points in Instagram Stories and proposing data-backed feature improvements. Covers user research, journey mapping, pain point prioritisation, and redesign recommendations.</p>
+            <a href="https://medium.com/@sakshithanvipm05/capstone-2-enhancing-instagram-stories-improving-user-experience-5e2db46f902e" target="_blank" rel="noopener" class="proj-link">Read on Medium <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          </div>
+        </div>
+        <div class="proj-card fade-up">
+          <div class="proj-card-top"><div class="proj-ico">🌱</div><div class="proj-meta"><span class="tag t-t">Product</span><span class="tag t-b">Capstone 1</span></div></div>
+          <div class="proj-card-body">
+            <h3>Plantory — Product Management Capstone</h3>
+            <p>End-to-end product case study from market research and user personas to full roadmap and go-to-market strategy. Demonstrates the complete PM lifecycle from problem discovery to launch planning.</p>
+            <a href="https://medium.com/@sakshithanvipm05/capstone-1-plantory-308e45ec107a" target="_blank" rel="noopener" class="proj-link">Read on Medium <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /tab-ux -->
+
+    <!-- E-COMMERCE TAB -->
+    <div class="tab-panel" id="tab-ecom">
+      <div class="proj-grid">
+        <div class="proj-card fade-up">
+          <div class="proj-card-top"><div class="proj-ico">🛒</div><div class="proj-meta"><span class="tag t-g">E-commerce</span><span class="tag t-b">Project 2</span></div></div>
+          <div class="proj-card-body">
+            <h3>E-Commerce Application — Product Case Study</h3>
+            <p>A structured product case study covering problem framing, solution design, and release strategy. Includes prioritisation framework, feature scoping, and go-to-market approach.</p>
+            <a href="https://medium.com/@sakshithanvipm05/project-2-e-commerce-application-15a29eb6e51f" target="_blank" rel="noopener" class="proj-link">Read on Medium <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /tab-ecom -->
+
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <span class="label">Skills</span>
+    <h2 class="h2 fade-up" style="margin-bottom:2.2rem">What I bring to the table.</h2>
+    <div class="skill-grid">
+      <div class="sk fade-up"><div class="sk-ico">🗂</div><h4>Product Management</h4><ul><li>Developing user stories</li><li>Roadmapping</li><li>Backlog prioritization</li><li>Stakeholder management</li><li>Market analysis</li><li>Release management</li></ul></div>
+      <div class="sk fade-up"><div class="sk-ico">🌐</div><h4>Domain Expertise</h4><ul><li>E-commerce</li><li>Testing &amp; QA</li><li>Card Payments (Fintech)</li><li>Supply Chain</li><li>AI / LLM Products</li><li>SaaS B2B &amp; B2C</li></ul></div>
+      <div class="sk fade-up"><div class="sk-ico">📊</div><h4>Project Management</h4><ul><li>Agile / Scrum methodology</li><li>Sprint planning &amp; execution</li><li>JIRA, Confluence, Trello</li><li>KPI tracking</li><li>Cross-functional coordination</li><li>Data-driven decisions</li></ul></div>
+      <div class="sk fade-up"><div class="sk-ico">🔍</div><h4>UX &amp; Research</h4><ul><li>User research &amp; interviews</li><li>Usability testing</li><li>Persona development</li><li>Journey mapping</li><li>UI collaboration</li><li>Prototype iteration</li></ul></div>
+      <div class="sk fade-up"><div class="sk-ico">💬</div><h4>Communication</h4><ul><li>Stakeholder alignment</li><li>Collaboration &amp; facilitation</li><li>Clear written communication</li><li>PRD &amp; spec writing</li><li>Executive presentations</li></ul></div>
+      <div class="sk fade-up"><div class="sk-ico">🤖</div><h4>AI Product Skills</h4><ul><li>AI product development</li><li>Agentic AI workflows</li><li>LLM product integration</li><li>Fine-tuning use cases</li><li>Google Analytics</li></ul></div>
+    </div>
+    <div style="margin-top:1.5rem">
+      <div style="background:var(--bg1);border:1px solid var(--border);border-radius:var(--r-sm);padding:.65rem 1.1rem;display:inline-flex;align-items:center;gap:.55rem"><span style="font-size:.95rem">🗣</span><div><div style="font-size:.76rem;font-weight:600;color:var(--text)">Languages</div><div style="font-size:.72rem;color:var(--muted)">English · Hindi</div></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="c-grid">
+      <div class="fade-up">
+        <span class="label">Contact</span>
+        <h2 class="h2">Let's build something<br><em style="font-style:italic;color:var(--gold)">great together.</em></h2>
+        <p class="sub" style="margin-top:1rem;max-width:400px">Open to senior PM roles, consulting opportunities, and interesting product conversations.</p>
+      </div>
+      <div class="fade-up">
+        <div class="c-links">
+          <a href="mailto:sakshithanvipm05@gmail.com" class="c-link"><span class="c-ico">✉</span>sakshithanvipm05@gmail.com</a>
+          <a href="tel:+916350081535" class="c-link"><span class="c-ico">📞</span>+91 6350081535</a>
+          <a href="https://www.linkedin.com/in/sakshi-thanvi" target="_blank" rel="noopener" class="c-link"><span class="c-ico">💼</span>LinkedIn — Sakshi Thanvi</a>
+          <a href="https://medium.com/@sakshithanvipm05" target="_blank" rel="noopener" class="c-link"><span class="c-ico">✍</span>Medium — @sakshithanvipm05</a>
+          <a href="#casestudies" class="c-link"><span class="c-ico">📋</span>View Case Studies</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer><div class="wrap">Designed &amp; built with care · Sakshi Thanvi © 2026</div></footer>
+
+<script>
+// Theme
+function toggleTheme(){
+  const h=document.documentElement,c=h.getAttribute('data-theme');
+  h.setAttribute('data-theme',c==='dark'?'light':'dark');
+  document.querySelector('.theme-btn').textContent=c==='dark'?'🌙':'☀';
+}
+// Mobile menu
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open')}
+// Case accordion
+function tog(id){
+  const el=document.getElementById(id),open=el.classList.contains('open');
+  document.querySelectorAll('.case').forEach(c=>c.classList.remove('open'));
+  if(!open)el.classList.add('open');
+}
+// Tabs
+function switchTab(name,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+  // re-trigger animations for newly visible cards
+  document.querySelectorAll('#tab-'+name+' .fade-up').forEach(el=>{
+    el.classList.remove('visible');
+    setTimeout(()=>el.classList.add('visible'),50);
+  });
+}
+// Scroll animations
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
